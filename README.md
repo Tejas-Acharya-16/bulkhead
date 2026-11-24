@@ -71,8 +71,9 @@ Question text is **real**: 485 JEE Advanced questions (2016–2023) from JEEBenc
 near-duplicates. Leak copies are **simulated** from them with **assumed** copying noise. The demo exam
 (60 questions per form, 8 lines, 4 presses) is **assumed**. Reproduce with `python3 eval/run_eval.py`.
 
-τ = 0.576, set above every calibration decoy (clean and noisy). On held-out decoys: 0 false matches in
-2,160 noisy and 108 clean questions. Recall on noisy bank questions: 0.999.
+τ = 0.576 (full text) and τ_words = 0.859 (words only), each set above every calibration decoy, clean and
+noisy (`data/design.json`). On the 108 held-out decoys, read clean once and with noise 20 times (2,160 reads),
+the false-match rate was 0 (`results/eval.json`, `matcher`). Recall on noisy bank questions: 0.999.
 
 | Scenario (200 trials each) | Source named | Wrong line flagged | Re-tested | Leaked yet scored (worst) | Recall |
 |---|---|---|---|---|---|
@@ -80,7 +81,7 @@ near-duplicates. Leak copies are **simulated** from them with **assumed** copyin
 | Press leak: both lines of one press | 1.000 | 0 | 25% | 0 | 1.000 |
 | Small leak: 12 questions | 0.985 | 0 | 12.5% | 2 | 0.998 |
 | Heavy noise: 20% character errors, 60% copied | 1.000 | 0 | 12.5% | 0 | 0.448 |
-| Rewritten: 50% of words dropped, shuffled | 1.000 | 0 | 12.5% | 0 | 0.921 |
+| Rewritten: 50% of words dropped, shuffled | 1.000 | 0 | 12.5% | 0 | 0.922 |
 | Rewritten: 70% of words dropped, shuffled | 1.000 | 0 | 12.5% | 0 | 0.512 |
 | Two leakers, different presses | 1.000 | 0 | 25% | 0 | 0.999 |
 | Setter leak: master copy | 1.000 | 0 | 100% | 0 | 1.000 |
@@ -112,7 +113,8 @@ its 30 own questions.
 
 ### Against what exists
 
-The five closest works, each opened and read:
+The six closest works, each opened and read (a wider list of eight directions is in
+[docs/DIRECTIONS.md](docs/DIRECTIONS.md)):
 
 | Closest work | How it traces a leak | Where it breaks on a 2026-style guess paper |
 |---|---|---|
@@ -121,10 +123,16 @@ The five closest works, each opened and read:
 | Traitor tracing (Chor, Fiat, Naor and Pinkas, 1994) | A different key per customer; a leaked key names its owner | Fails when the decrypted content itself is passed on |
 | Region-specific question sets (CBSE, earlier years) | A leaked set points to its region, so a re-test can stay in that region | Regions are not custody nodes; CBSE moved to one national set, and in 2018 the re-test scope rested on a police inquiry and was contested |
 | Multi-shift papers with percentile scoring (JEE Main) | Each shift has its own paper; scores are compared by percentile within a shift | Shifts follow the clock, not custody: every press and centre handles every shift |
+| Data forensics on multiple test forms (PSI) | A leaked document is matched to the identical test form; candidates who chose its wrong answers have scores invalidated | Names a form, not where in the supply chain it escaped; finds users only after their answers are in |
 
-Bulkhead keeps the useful parts (different content per group; percentile scoring) and changes three things:
-the groups are the custody chain itself (line inside press inside setter), the tracer is the questions, which
-survive retyping, handwriting and OCR, and the response bounds who re-sits instead of only naming a culprit.
+Matching a leak to a form is not new (PSI does it). Bulkhead's contribution is what the forms are: groups
+keyed to the custody chain itself (line inside press inside setter), so the match names where the paper
+escaped, and a response fixed in advance that bounds who re-sits. The tracer is the questions, which survive
+retyping (tested) and copying by hand (tested only as a handwriting-style font read by OCR).
+
+**Where QR codes win.** A photographed copy from one centre: a QR code names that centre, while Bulkhead names
+its print line and re-tests 12.5%. The 2024 NEET leak was at single centres. Use both: the code for photos,
+the questions for retyped copies, and more lines (16 lines: 6.25%) where finer blocks are worth the bank.
 
 Run on the same simulated leaks (`python3 eval/baselines.py`, 50 trials per cell). Each cell: share of
 candidates who re-sit / source named / custody nodes still suspected (of 13). Text copies only, so a QR code
@@ -142,6 +150,22 @@ Where Bulkhead does not help: a setter's full copy still means everyone re-sits,
 one section under every design; Bulkhead only adds who to investigate. The 2% in the last row is one paper in
 50 where a decoy matched a single bank question: a one-paper design treats any match as a leak, while Bulkhead
 needs 3 of one line's own questions.
+
+### Fairness of scoring on the own block (simulated)
+
+After a line leak, everyone else is ranked on their line's own questions only, by percentile within the line.
+`python3 eval/fairness.py` simulates 200,000 candidates (2PL item response model, own blocks deliberately
+made easier or harder by up to ±0.4, candidates assigned to lines at random):
+
+| Form | Rank agreement with true ability: whole paper | Own block, percentile in line | Own block, raw marks | True top 1% kept: whole / own |
+|---|---|---|---|---|
+| Demo (60 questions, 30 own) | 0.965 | 0.934 | 0.892 | 0.61 / 0.46 |
+| NEET-sized (180, 90 own) | 0.988 | 0.976 | 0.917 | 0.76 / 0.66 |
+
+The cost is real: at NEET size about one in ten of the true top 1% would swap places compared with a full
+paper. That is the trade against re-examining 22 lakh candidates. Percentile scoring within the line is
+essential (raw marks fall to 0.917), and candidates could be offered an optional re-sit. SIMULATED; it needs a
+psychometrician's review.
 
 ### At NEET scale (derived, not measured)
 
@@ -186,7 +210,15 @@ yet.
 Framing needs access, and access is what Bulkhead names.
 
 **Is it fair that lines answer different questions?** It is how JEE Main already runs shifts: percentile within
-each group. A psychometrician should review it before real use.
+each group. In our simulation at NEET size, ranking on the 90 own questions agrees with true ability at 0.976,
+against 0.988 for the whole paper; see the fairness table. A psychometrician should review it before real use.
+
+**One centre leaked a photo. Isn't a QR code better?** Yes, for photos. Bulkhead is for the copies a QR code
+cannot trace, and the two work together.
+
+**Isn't matching a leak to a form already done?** Yes: PSI matches leaked documents to computer-test forms.
+Bulkhead's contribution is forms keyed to the custody chain, so the match names where the paper escaped, plus
+a bounded re-test fixed in advance.
 
 **What does it cost?** For a NEET-sized form at eight lines, 810 questions instead of 180.
 
@@ -206,6 +238,7 @@ python3 -m unittest discover -s tests      # 17 tests; parity test runs if sciki
 python3 eval/run_eval.py --trials 200      # results table above (about 6 min with scikit-learn)
 python3 eval/ocr_eval.py --trials 3        # OCR test on rendered pages (needs the tesseract binary)
 python3 eval/baselines.py --trials 50      # today's designs vs Bulkhead on the same leaks
+python3 eval/fairness.py                   # ranking cost of own-block scoring (needs numpy)
 python3 scripts/export_form.py C3          # print one line's form, for the real-copy test
 ```
 
@@ -252,7 +285,7 @@ api/        Vercel Python functions
 public/     the web app (HTML, CSS, JS; no build step), self-hosted fonts, Tesseract.js, sample photo
 data/       bank.json (270 questions), decoys.json, design.json (τ and the presence rule)
 scripts/    build_bank.py: rebuilds data/ from JEEBench
-eval/       run_eval.py (main table), ocr_eval.py (OCR on page images), baselines.py
+eval/       run_eval.py (main table), ocr_eval.py (OCR on page images), baselines.py, fairness.py
 tests/      unit, end-to-end and scikit-learn parity tests
 docs/       judges' notes, demo-video script, real-copy test protocol
 ```

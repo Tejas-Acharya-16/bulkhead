@@ -27,7 +27,8 @@ number in the README against `results/eval.json`.
 ## What is real, simulated, assumed or planned
 
 - **Real:** question text; the matcher's measured recall and false-match rates on held-out real questions.
-- **Simulated:** every leak copy in the eval and the demo (real questions plus code-generated copying errors),
+- **Simulated:** the fairness study (`eval/fairness.py`, an item response model with assumed parameters);
+  every leak copy in the eval and the demo (real questions plus code-generated copying errors),
   including the sample photo.
 - **Assumed:** the demo exam design (60 questions per form, 8 lines, 4 presses), the noise rates, and the
   illustrative 22 lakh candidates in the web app.

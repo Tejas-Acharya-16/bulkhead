@@ -1,0 +1,23 @@
+{
+ "candidates": 200000,
+ "lines": 8,
+ "rows": [
+  {
+   "items": "60 per form, 30 own",
+   "rank_corr_full": 0.965,
+   "rank_corr_own_percentile": 0.934,
+   "rank_corr_own_raw": 0.892,
+   "top1pct_full": 0.606,
+   "top1pct_own_percentile": 0.459
+  },
+  {
+   "items": "180 per form, 90 own",
+   "rank_corr_full": 0.988,
+   "rank_corr_own_percentile": 0.976,
+   "rank_corr_own_raw": 0.917,
+   "top1pct_full": 0.755,
+   "top1pct_own_percentile": 0.664
+  }
+ ],
+ "label": "SIMULATED (2PL IRT, ASSUMED)"
+}
