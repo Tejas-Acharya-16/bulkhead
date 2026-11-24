@@ -3,61 +3,61 @@
   {
    "font": "handwriting (Kalam)",
    "scenario": "Line leak C3",
-   "trials": 3,
+   "trials": 10,
    "source_named": 1.0,
-   "recall": 0.548
+   "recall": 0.587
   },
   {
    "font": "handwriting (Kalam)",
    "scenario": "Press leak P2",
-   "trials": 3,
+   "trials": 10,
    "source_named": 1.0,
-   "recall": 0.549
+   "recall": 0.55
   },
   {
    "font": "handwriting (Kalam)",
    "scenario": "Small leak, 12 questions",
-   "trials": 3,
+   "trials": 10,
    "source_named": 1.0,
-   "recall": 0.528
+   "recall": 0.667
   },
   {
    "font": "handwriting (Kalam)",
    "scenario": "Null: decoys only",
-   "trials": 3,
+   "trials": 10,
    "source_named": 1.0,
    "recall": null
   },
   {
    "font": "printed (DejaVu Serif)",
    "scenario": "Line leak C3",
-   "trials": 3,
+   "trials": 10,
    "source_named": 1.0,
-   "recall": 0.844
+   "recall": 0.858
   },
   {
    "font": "printed (DejaVu Serif)",
    "scenario": "Press leak P2",
-   "trials": 3,
+   "trials": 10,
    "source_named": 1.0,
-   "recall": 0.882
+   "recall": 0.875
   },
   {
    "font": "printed (DejaVu Serif)",
    "scenario": "Small leak, 12 questions",
-   "trials": 3,
+   "trials": 10,
    "source_named": 1.0,
-   "recall": 0.944
+   "recall": 0.867
   },
   {
    "font": "printed (DejaVu Serif)",
    "scenario": "Null: decoys only",
-   "trials": 3,
+   "trials": 10,
    "source_named": 1.0,
    "recall": null
   }
  ],
- "seconds": 462,
+ "seconds": 1508,
  "tesseract": "tesseract 5.3.4",
  "labels": {
   "question_text": "REAL (JEEBench)",

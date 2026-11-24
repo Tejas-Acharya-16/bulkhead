@@ -100,13 +100,13 @@ everyone, so at most 2 leaked questions still counted toward that line's scores.
 ### Real OCR on page images
 
 Every formula is deleted, the questions are rendered as pages in a handwriting-style font (Kalam) and in a
-printed serif, with tilt, blur and grain, and read by Tesseract 5. Pages SYNTHETIC, OCR REAL.
+printed serif, with tilt, blur and grain, and read by Tesseract 5. Pages SYNTHETIC (a font, not a person's handwriting), OCR REAL. 80 papers in all.
 Reproduce with `python3 eval/ocr_eval.py`.
 
-| Font | Line leak | Press leak | 12-question leak | No leak |
+| Font (10 papers per cell) | Line leak | Press leak | 12-question leak | No leak |
 |---|---|---|---|---|
-| Handwriting style | named 3/3, recall 0.55 | named 3/3, recall 0.55 | named 3/3, recall 0.53 | nobody named 3/3 |
-| Printed | named 3/3, recall 0.84 | named 3/3, recall 0.88 | named 3/3, recall 0.94 | nobody named 3/3 |
+| Handwriting style | named 10/10, recall 0.59 | named 10/10, recall 0.55 | named 10/10, recall 0.67 | nobody named 10/10 |
+| Printed | named 10/10, recall 0.86 | named 10/10, recall 0.88 | named 10/10, recall 0.87 | nobody named 10/10 |
 
 Even when only about half the leaked questions are recognised, the source is named: a line needs only 3 of
 its 30 own questions.
