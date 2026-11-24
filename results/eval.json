@@ -1,0 +1,184 @@
+{
+ "design": {
+  "compartments": 8,
+  "presses": {
+   "P1": [
+    0,
+    1
+   ],
+   "P2": [
+    2,
+    3
+   ],
+   "P3": [
+    4,
+    5
+   ],
+   "P4": [
+    6,
+    7
+   ]
+  },
+  "shared": 30,
+  "unique_per_compartment": 30,
+  "subjects": [
+   "phy",
+   "chem",
+   "math"
+  ],
+  "form_size": 60,
+  "bank": 270,
+  "presence_t": 3,
+  "tau": 0.5756,
+  "tau_words": 0.8589,
+  "false_match_upper": 0.00467,
+  "alpha": 0.0001,
+  "commitment": "c8da0ac9c2ba4561531bdf4de6b136a7c2139e0d2588d5906ff56cf8726ef399"
+ },
+ "engine": "scikit-learn",
+ "trials": 200,
+ "seed": 11,
+ "python": "3.13.18",
+ "seconds": 525.6,
+ "matcher": {
+  "recall_noisy_bank": 0.9985185185185185,
+  "false_match_clean_decoys": 0.0,
+  "false_match_noisy_decoys": 0.0,
+  "false_match_rewritten_decoys": 0.0,
+  "noisy_decoy_queries": 2160,
+  "bound_used_by_decoder": 0.00467
+ },
+ "scenarios": [
+  {
+   "scenario": "Line leak: 75% of one form, 2:1 decoys",
+   "source_named": 1.0,
+   "false_compartments": 0.0,
+   "exposed": 0.125,
+   "leaked_yet_scored_worst": 0,
+   "recall": 0.998,
+   "paper_questions": 153
+  },
+  {
+   "scenario": "Press leak: both lines of one press",
+   "source_named": 1.0,
+   "false_compartments": 0.0,
+   "exposed": 0.25,
+   "leaked_yet_scored_worst": 0,
+   "recall": 1.0,
+   "paper_questions": 176
+  },
+  {
+   "scenario": "Small leak: 12 questions",
+   "source_named": 0.985,
+   "false_compartments": 0.0,
+   "exposed": 0.125,
+   "leaked_yet_scored_worst": 2,
+   "recall": 0.998,
+   "paper_questions": 120
+  },
+  {
+   "scenario": "Heavy noise: 20% char errors, 60% copied",
+   "source_named": 1.0,
+   "false_compartments": 0.0,
+   "exposed": 0.125,
+   "leaked_yet_scored_worst": 0,
+   "recall": 0.448,
+   "paper_questions": 153
+  },
+  {
+   "scenario": "Rewritten: 50% of words dropped, shuffled",
+   "source_named": 1.0,
+   "false_compartments": 0.0,
+   "exposed": 0.125,
+   "leaked_yet_scored_worst": 0,
+   "recall": 0.922,
+   "paper_questions": 153
+  },
+  {
+   "scenario": "Rewritten: 70% of words dropped, shuffled",
+   "source_named": 1.0,
+   "false_compartments": 0.0,
+   "exposed": 0.125,
+   "leaked_yet_scored_worst": 0,
+   "recall": 0.512,
+   "paper_questions": 153
+  },
+  {
+   "scenario": "Two leakers, different presses",
+   "source_named": 1.0,
+   "false_compartments": 0.0,
+   "exposed": 0.25,
+   "leaked_yet_scored_worst": 0,
+   "recall": 0.999,
+   "paper_questions": 168
+  },
+  {
+   "scenario": "Setter leak: master copy",
+   "source_named": 1.0,
+   "false_compartments": 0.0,
+   "exposed": 1.0,
+   "leaked_yet_scored_worst": 0,
+   "recall": 1.0,
+   "paper_questions": 310
+  },
+  {
+   "scenario": "Setter side: one subject panel (chemistry)",
+   "source_named": 1.0,
+   "false_compartments": 0.0,
+   "exposed": 1.0,
+   "leaked_yet_scored_worst": 0,
+   "recall": 0.999,
+   "paper_questions": 176
+  },
+  {
+   "scenario": "Shared block only",
+   "source_named": 1.0,
+   "false_compartments": 0.0,
+   "exposed": 0.0,
+   "leaked_yet_scored_worst": 0,
+   "recall": 0.999,
+   "paper_questions": 132
+  },
+  {
+   "scenario": "Null: real decoys only",
+   "source_named": 1.0,
+   "false_compartments": 0.0,
+   "exposed": 0.0,
+   "leaked_yet_scored_worst": 0,
+   "recall": null,
+   "paper_questions": 108
+  },
+  {
+   "scenario": "Null, rewritten decoys (70% dropped)",
+   "source_named": 1.0,
+   "false_compartments": 0.0,
+   "exposed": 0.0,
+   "leaked_yet_scored_worst": 0,
+   "recall": null,
+   "paper_questions": 108
+  },
+  {
+   "scenario": "Flood: line leak inside 1,080 decoys",
+   "source_named": 1.0,
+   "false_compartments": 0.0,
+   "exposed": 0.125,
+   "leaked_yet_scored_worst": 0,
+   "recall": 0.999,
+   "paper_questions": 1125
+  },
+  {
+   "scenario": "Flood null: 1,080 decoys, no leak",
+   "source_named": 1.0,
+   "false_compartments": 0.0,
+   "exposed": 0.0,
+   "leaked_yet_scored_worst": 0,
+   "recall": null,
+   "paper_questions": 1080
+  }
+ ],
+ "labels": {
+  "question_text": "REAL (JEEBench, MIT)",
+  "leak_copies": "SIMULATED",
+  "noise_and_design": "ASSUMED"
+ }
+}

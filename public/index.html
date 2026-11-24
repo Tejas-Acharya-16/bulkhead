@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bulkhead: make an exam leak name its source</title>
+<meta name="description" content="Paste a leaked or guess paper. Bulkhead names the print line, press or setter that held those questions, and limits the re-sit to the candidates who could have seen them.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <h1 class="wordmark">Bulkhead</h1>
+  <p class="lede">Paste a leaked paper. See where it left the chain of custody, and who has to re-sit.</p>
+  <p class="design-line" id="design-line">Loading the demo exam…</p>
+</header>
+
+<main class="desk">
+  <section class="paper" aria-labelledby="paper-h">
+    <h2 id="paper-h">The leaked paper</h2>
+    <p class="hint">Try a simulated leak, or paste your own text. Number the questions (1., 2., …) or put a blank line between them.</p>
+    <div class="samples" role="group" aria-label="Simulated leaks">
+      <button type="button" data-kind="line">One print line</button>
+      <button type="button" data-kind="press">A whole press</button>
+      <button type="button" data-kind="small">Small leak, 12 questions</button>
+      <button type="button" data-kind="heavy">Badly copied</button>
+      <button type="button" data-kind="rewrite70">Rewritten</button>
+      <button type="button" data-kind="two">Two leakers</button>
+      <button type="button" data-kind="setter">Setter's copy</button>
+      <button type="button" data-kind="panel">Chemistry setters only</button>
+      <button type="button" data-kind="shared">Shared questions only</button>
+      <button type="button" data-kind="null">No leak</button>
+    </div>
+    <div class="photo-row">
+      <label class="photo-btn" for="photo">Read photos of a paper</label>
+      <input id="photo" class="sr-only" type="file" accept="image/*" multiple>
+      <button type="button" class="photo-sample" id="sample-photo">Try a sample photo</button>
+    </div>
+    <p class="hint photo-hint">Photos are read on this device by an OCR engine in your browser. The image is never uploaded.</p>
+    <p class="sample-note" id="sample-note" hidden></p>
+    <label class="sr-only" for="leak">Text of the leaked or guess paper</label>
+    <textarea id="leak" spellcheck="false" placeholder="Paste the text of a leaked or 'guess' paper here."></textarea>
+    <div class="actions">
+      <button type="button" class="decode" id="decode">Find the source</button>
+      <span class="status" id="status" role="status" aria-live="polite"></span>
+    </div>
+  </section>
+
+  <section class="verdict" aria-labelledby="verdict-h">
+    <h2 id="verdict-h" class="sr-only">Verdict</h2>
+    <div class="verdict-line" id="verdict-line">
+      <p class="verdict-main">No paper read yet.</p>
+      <p class="verdict-sub">The verdict, the custody chain and the evidence appear here.</p>
+    </div>
+    <p class="truth" id="truth" hidden></p>
+
+    <figure class="chain">
+      <svg id="chain" viewBox="0 0 640 430" role="img" aria-labelledby="chain-title chain-desc">
+        <title id="chain-title">Custody chain and answer grid</title>
+        <desc id="chain-desc">The setter sends the paper to four presses; each press prints two lines. Under each line, one bubble per question that only that line received; filled bubbles were found in the pasted paper.</desc>
+      </svg>
+      <figcaption>Each line's own questions, one bubble each (physics, chemistry, maths). Filled: found in the pasted paper. A line counts as a source once it has <span id="need">3</span> or more.</figcaption>
+    </figure>
+
+    <section class="response" aria-labelledby="resp-h">
+      <h3 id="resp-h">What happens now</h3>
+      <div class="compare">
+        <p><span class="big" id="retest-share">–</span> <span id="retest-label">of candidates re-sit with Bulkhead</span></p>
+        <p><span class="big muted-big">100%</span> re-sit when everyone gets the same paper</p>
+      </div>
+      <p class="illus" id="illus"></p>
+      <ol class="steps" id="steps"></ol>
+    </section>
+
+    <section class="evidence" aria-labelledby="ev-h">
+      <h3 id="ev-h">Evidence</h3>
+      <p class="hint" id="ev-note">Each row is a question in the pasted paper that matches a bank question.</p>
+      <p class="hint commit" id="commit"></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">In paper</th><th scope="col">Bank question</th><th scope="col">Held by</th><th scope="col">Match</th><th scope="col">Original source</th></tr></thead>
+          <tbody id="ev-body"><tr><td colspan="5" class="empty">Nothing matched yet.</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </section>
+</main>
+
+<footer class="ledger">
+  <h2>What is real here</h2>
+  <dl>
+    <div><dt>Real</dt><dd>Every question is a real JEE Advanced question (2016–2023) from JEEBench, MIT licence. Decoys in the samples are real JEE questions that are not in the bank.</dd></div>
+    <div><dt>Simulated</dt><dd>The sample leaks: real questions with copying errors, cut-offs and rewording added by code.</dd></div>
+    <div><dt>Assumed</dt><dd>The demo exam: 60 questions per form, 8 print lines, 4 presses. The re-sit figure uses an illustrative 22 lakh candidates and equal line sizes.</dd></div>
+    <div><dt>Built, with limits</dt><dd>Reading photos (Tesseract OCR, in the browser). Formulas rarely survive OCR, so matching falls back on the words. Real handwriting is harder than the sample's handwriting-style font.</dd></div>
+  </dl>
+  <p>A named line or press starts an investigation. It is not a finding that any person leaked the paper.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

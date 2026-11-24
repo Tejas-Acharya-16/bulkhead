@@ -1,0 +1,1 @@
+{"pages": ["guess-paper-page1.jpg", "guess-paper-page2.jpg", "guess-paper-page3.jpg"], "truth": {"kind": "photo", "sources": ["C3"], "real_questions": 18, "decoys": 8, "label": "SYNTHETIC handwriting-font pages built from REAL questions"}}

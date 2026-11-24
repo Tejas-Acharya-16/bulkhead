@@ -1,0 +1,140 @@
+{
+ "trials": 50,
+ "rows": [
+  {
+   "source": "Print line leak",
+   "B0": {
+    "resit": 1.0,
+    "section_only": 0.0,
+    "named": 0.0,
+    "suspects": 13
+   },
+   "B1": {
+    "resit": 1.0,
+    "section_only": 0.0,
+    "named": 0.0,
+    "suspects": 13
+   },
+   "B2": {
+    "resit": 0.125,
+    "section_only": 0.0,
+    "named": 0.0,
+    "suspects": 9
+   },
+   "BH": {
+    "resit": 0.125,
+    "section_only": 0.0,
+    "named": 1.0,
+    "suspects": 1
+   }
+  },
+  {
+   "source": "Press leak",
+   "B0": {
+    "resit": 1.0,
+    "section_only": 0.0,
+    "named": 0.0,
+    "suspects": 13
+   },
+   "B1": {
+    "resit": 1.0,
+    "section_only": 0.0,
+    "named": 0.0,
+    "suspects": 13
+   },
+   "B2": {
+    "resit": 1.0,
+    "section_only": 0.0,
+    "named": 0.0,
+    "suspects": 5
+   },
+   "BH": {
+    "resit": 0.25,
+    "section_only": 0.0,
+    "named": 1.0,
+    "suspects": 1
+   }
+  },
+  {
+   "source": "Setter leak",
+   "B0": {
+    "resit": 1.0,
+    "section_only": 0.0,
+    "named": 0.0,
+    "suspects": 13
+   },
+   "B1": {
+    "resit": 1.0,
+    "section_only": 0.0,
+    "named": 0.0,
+    "suspects": 13
+   },
+   "B2": {
+    "resit": 1.0,
+    "section_only": 0.0,
+    "named": 0.0,
+    "suspects": 5
+   },
+   "BH": {
+    "resit": 1.0,
+    "section_only": 0.0,
+    "named": 1.0,
+    "suspects": 1
+   }
+  },
+  {
+   "source": "Chemistry setters only",
+   "B0": {
+    "resit": 1.0,
+    "section_only": 1.0,
+    "named": 0.0,
+    "suspects": 13
+   },
+   "B1": {
+    "resit": 1.0,
+    "section_only": 1.0,
+    "named": 0.0,
+    "suspects": 13
+   },
+   "B2": {
+    "resit": 1.0,
+    "section_only": 1.0,
+    "named": 0.0,
+    "suspects": 5
+   },
+   "BH": {
+    "resit": 1.0,
+    "section_only": 1.0,
+    "named": 1.0,
+    "suspects": 1
+   }
+  },
+  {
+   "source": "No leak (decoys only)",
+   "B0": {
+    "resit": 0.02,
+    "section_only": 0.0,
+    "named": 0.98,
+    "suspects": 0.3
+   },
+   "B1": {
+    "resit": 0.0,
+    "section_only": 0.0,
+    "named": 1.0,
+    "suspects": 0
+   },
+   "B2": {
+    "resit": 0.0,
+    "section_only": 0.0,
+    "named": 1.0,
+    "suspects": 0
+   },
+   "BH": {
+    "resit": 0.0,
+    "section_only": 0.0,
+    "named": 1.0,
+    "suspects": 0
+   }
+  }
+ ]
+}

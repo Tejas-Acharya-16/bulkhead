@@ -1,0 +1,67 @@
+{
+ "rows": [
+  {
+   "font": "handwriting (Kalam)",
+   "scenario": "Line leak C3",
+   "trials": 3,
+   "source_named": 1.0,
+   "recall": 0.548
+  },
+  {
+   "font": "handwriting (Kalam)",
+   "scenario": "Press leak P2",
+   "trials": 3,
+   "source_named": 1.0,
+   "recall": 0.549
+  },
+  {
+   "font": "handwriting (Kalam)",
+   "scenario": "Small leak, 12 questions",
+   "trials": 3,
+   "source_named": 1.0,
+   "recall": 0.528
+  },
+  {
+   "font": "handwriting (Kalam)",
+   "scenario": "Null: decoys only",
+   "trials": 3,
+   "source_named": 1.0,
+   "recall": null
+  },
+  {
+   "font": "printed (DejaVu Serif)",
+   "scenario": "Line leak C3",
+   "trials": 3,
+   "source_named": 1.0,
+   "recall": 0.844
+  },
+  {
+   "font": "printed (DejaVu Serif)",
+   "scenario": "Press leak P2",
+   "trials": 3,
+   "source_named": 1.0,
+   "recall": 0.882
+  },
+  {
+   "font": "printed (DejaVu Serif)",
+   "scenario": "Small leak, 12 questions",
+   "trials": 3,
+   "source_named": 1.0,
+   "recall": 0.944
+  },
+  {
+   "font": "printed (DejaVu Serif)",
+   "scenario": "Null: decoys only",
+   "trials": 3,
+   "source_named": 1.0,
+   "recall": null
+  }
+ ],
+ "seconds": 462,
+ "tesseract": "tesseract 5.3.4",
+ "labels": {
+  "question_text": "REAL (JEEBench)",
+  "pages": "SYNTHETIC renders, maths removed",
+  "ocr": "REAL (Tesseract)"
+ }
+}

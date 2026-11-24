@@ -1,0 +1,3 @@
+# Runtime: none. The engine, API and local server use only the Python standard library (3.9+).
+# Optional, for eval/run_eval.py speed and tests/test_parity.py:
+#   pip install scikit-learn numpy

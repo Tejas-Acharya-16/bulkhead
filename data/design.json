@@ -1,0 +1,35 @@
+{
+ "compartments": 8,
+ "presses": {
+  "P1": [
+   0,
+   1
+  ],
+  "P2": [
+   2,
+   3
+  ],
+  "P3": [
+   4,
+   5
+  ],
+  "P4": [
+   6,
+   7
+  ]
+ },
+ "presence_t": 3,
+ "tau": 0.5756,
+ "tau_words": 0.8589,
+ "words_items": 252,
+ "words_calibration_queries": 1090,
+ "false_match_upper": 0.00467,
+ "alpha": 0.0001,
+ "calibration_queries": 642,
+ "seed": 7,
+ "kept": 485,
+ "near_duplicates_dropped": 30,
+ "calibration_null_max": 0.5556,
+ "source": "JEEBench (dair-iitd/jeebench, MIT licence)",
+ "commitment": "c8da0ac9c2ba4561531bdf4de6b136a7c2139e0d2588d5906ff56cf8726ef399"
+}

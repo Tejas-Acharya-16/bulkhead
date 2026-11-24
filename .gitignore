@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+.vercel/
+results/eval_run.log
+.DS_Store
