@@ -12,17 +12,17 @@ Export the 7-slide deck (it follows the organisers' template) as PDF. Upload it 
 Share → General access → "Anyone with the link" → Viewer. Paste that link.
 
 **GitHub repository**
-`https://github.com/<account>/bulkhead` (public; README has setup steps, as the template requires).
+https://github.com/Tejas-Acharya-16/bulkhead
 
 **Live demo**
-`https://<project>.vercel.app`
+https://bulkhead-pi.vercel.app
 
 **Demo video (YouTube / Drive)**
-Already made: `public/demo.mp4` (2 min 37 s, captioned, no voice), served at `https://<project>.vercel.app/demo.mp4`.
+Already made: `public/demo.mp4` (2 min 37 s, captioned, no voice), served at https://bulkhead-pi.vercel.app/demo.mp4.
 Paste that link, or upload the same file to YouTube as Unlisted if the form rejects it.
 
 **Any other link**
-The results table: `https://github.com/<account>/bulkhead/blob/main/results/eval.md`
+The results table: https://github.com/Tejas-Acharya-16/bulkhead/blob/main/results/eval.md
 
 **Notes for the judges** (paste as is; about 150 words)
 

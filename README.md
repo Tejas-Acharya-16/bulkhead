@@ -7,7 +7,9 @@
 
 Track: Open Innovation · NovaStark Hacks 2026 · Team NovaNex
 
-Live demo: `https://<your-project>.vercel.app` · Video: `/demo.mp4` on the live site · Results: [results/](results/)
+**Live demo: https://bulkhead-pi.vercel.app** · Code: https://github.com/Tejas-Acharya-16/bulkhead · Results: [results/](results/)
+
+Team NovaNex, RGIPT: Manmath Kapse (lead), Adi Pandey, Tejas Prakash.
 
 ---
 
